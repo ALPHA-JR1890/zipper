@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Size Selector",
+  "description": "Auto-selects clothing sizes on Gap and Hollister based on your measurements.",
+  "version": "2.0",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.gap.com/*",
+    "https://www.hollisterco.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.gap.com/*",
+        "https://www.hollisterco.com/*"
+      ],
+      "js": ["sizing-data.js", "content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Auto Size Selector",
+    "default_popup": "options.html"
+  }
+}
